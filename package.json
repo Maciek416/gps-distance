@@ -14,12 +14,15 @@
   },
   "devDependencies": {
     "mocha": ">= 1.9.0",
-    "should": ">= 1.2.2"
+    "should": ">= 1.2.2",
+    "gpx-stream": "0.0.1"
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "keywords": [
-    "gps", "coordinates", "distance", "haversine"
+    "gps",
+    "coordinates",
+    "distance",
+    "haversine"
   ],
   "author": "Maciej Adwent (http://github.com/Maciek416)",
   "license": "BSD"
