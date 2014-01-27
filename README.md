@@ -5,6 +5,13 @@ gps-distance
 
 A node module for performing distance calculations between GPS coordinates
 
+Installation
+------------
+
+```
+npm install gps-distance
+```
+
 Examples
 ========
 
@@ -17,9 +24,7 @@ Point to Point
 
 var distance = require('gps-distance');
 
-
-// Between two points:
-
+// Measure between two points:
 var result = distance(45.527517, -122.718766, 45.373373, -121.693604);
 
 // result is 81.78450202539503
@@ -41,6 +46,35 @@ var result2 = distance(path);
 
 // result2 is 163.56900405079006
 ```
+
+Measuring Distance From a .GPX File
+-----------------------------------
+
+To compute the distance travelled in a tracked GPX file, use `gps-distance` with the `gpx-stream` module ( http://npmjs.org/package/gpx-stream/ ).
+
+```javascript
+
+var GPXstream = require('gpx-stream');
+var distance = require('gps-distance');
+
+var points = new GPXstream();
+var source = fs.createReadStream('./marathon.gpx');
+var path = [];
+
+source.pipe(points);
+
+points.on('readable', function() {
+  var point;
+
+  while(point = points.read()) {
+    path.push([point.lat, point.lon]);
+  }
+});
+
+points.on('end', function() {
+  console.log('Distance travelled: ' + distance(path) + ' km');
+});
+
 
 Notes
 -----
