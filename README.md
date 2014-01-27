@@ -74,6 +74,7 @@ points.on('readable', function() {
 points.on('end', function() {
   console.log('Distance travelled: ' + distance(path) + ' km');
 });
+```
 
 
 Notes
