@@ -1,11 +1,11 @@
 {
   "name": "gps-distance",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Node module for computing distances between GPS coordinates",
   "private": false,
   "engines": {
     "node": ">= 0.10.x",
-    "npm": "1.2.x"
+    "npm": ">= 1.2.x"
   },
   "main": "lib/distance",
   "repository": {
