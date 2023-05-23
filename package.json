@@ -1,6 +1,6 @@
 {
   "name": "gps-distance-es",
-  "version": "1.0.0",
+  "version": "1.0.0-alpha.1",
   "description": "gps-distance esm version",
   "typings": "typings/index.d.ts",
   "main": "lib/gps-distance-es.cjs.js",
