@@ -1,9 +1,3 @@
-/*
- * @Author: 曾令宇
- * @Date: 2023-05-23 11:25:09
- * @FilePath: /gps-distance-es/src/index.tsx
- */
-
 const RADIUS = 6371;
 
 export const toRad = (n: number) => {
