@@ -1,7 +1,7 @@
 {
-  "name": "gps-distance",
+  "name": "gps-distance-es",
   "version": "1.0.0",
-  "description": "Node module for computing distances between GPS coordinates",
+  "description": "gps-distance esm version",
   "typings": "typings/index.d.ts",
   "main": "lib/gps-distance-es.cjs.js",
   "module": "lib/gps-distance-es.esm.js",
@@ -11,7 +11,8 @@
     "npm": ">= 6.x.x"
   },
   "repository": {
-    "type": "git"
+    "type": "git",
+    "url": "https://github.com/diaz-zeng/gps-distance-es"
   },
   "scripts": {
     "test": "jest",

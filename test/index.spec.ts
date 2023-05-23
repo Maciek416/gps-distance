@@ -1,6 +1,17 @@
-import { getDistance } from '../src'
-test('Two points text',
+import distance, { Point } from '../src';
+test('Two points test',
     () => {
-        const result = getDistance([45.527517, -122.718766], [45.373373, -121.693604])
-        expect(result).toBeCloseTo(81.784, 0.1)
-    })
+        const result = distance(40.01310039659863, 116.3228666932373, 39.99232418365557, 116.32441164562988);
+        expect(result / 1000).toBeCloseTo(2316.5 / 1000);
+    });
+
+test('Multi points test', () => {
+    const points: Point[] = [
+        { "lat": 39.98548505998512, "lng": 116.30432726452636, "height": 0 },
+        { "lat": 39.98614269778466, "lng": 116.33316637585449, "height": 0 },
+        { "lat": 39.992455698554, "lng": 116.33316637585449, "height": 0 },
+        { "lat": 39.992061153099044, "lng": 116.31634356091308, "height": 0 }].map(i => [i.lat, i.lng]);
+    const result = distance(points);
+
+    expect(result / 1000).toBeCloseTo(4599.1 / 1000, 1);
+});

@@ -1,0 +1,11 @@
+node_modules
+dist
+test
+.vscode
+.github
+.eslintrc.js
+babel.config.js
+jest.config.js
+rollup.config.js
+coverage
+tsconfig.json
