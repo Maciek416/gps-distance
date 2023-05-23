@@ -22,7 +22,7 @@ export const getDistance = (from: Point, to: Point) => {
     Math.pow(Math.sin(dLon / 2), 2) * Math.cos(radFromLat) * Math.cos(radToLat);
   const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
 
-  return RADIUS * c * 1000;
+  return RADIUS * c;
 };
 
 const measurePath = (points: Point[]) => {

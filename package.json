@@ -1,7 +1,7 @@
 {
   "name": "gps-distance-es",
-  "version": "1.0.0-alpha.1",
-  "description": "gps-distance esm version",
+  "version": "1.0.0-alpha.2",
+  "description": "Typescript refactoring version of gps-distance",
   "typings": "typings/index.d.ts",
   "main": "lib/gps-distance-es.cjs.js",
   "module": "lib/gps-distance-es.esm.js",
@@ -25,7 +25,7 @@
     "distance",
     "haversine"
   ],
-  "license": "BSD",
+  "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.21.8",
     "@babel/preset-env": "^7.21.5",
@@ -46,7 +46,6 @@
     "rollup-plugin-terser": "^7.0.2",
     "ts-jest": "^27.1.2",
     "typescript": "~4.1.5",
-    "vuepress": "^1.9.5",
     "webpack-env": "^0.8.0"
   }
 }

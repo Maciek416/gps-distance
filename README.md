@@ -1,83 +1,54 @@
-gps-distance
+gps-distance-es
 ============
 
-[![NPM](https://nodei.co/npm/gps-distance.png)](https://nodei.co/npm/gps-distance/)
+[![NPM](https://nodei.co/npm/gps-distance-es.png)](https://nodei.co/npm/gps-distance-es/)
 
-A node module for performing distance calculations between GPS coordinates
+[gps-distance](https://nodei.co/npm/gps-distance)的Typescript重构版
 
-Installation
+[简体中文](./README.md) | [English](./README_EN.md)
+
+安装
 ------------
 
 ```
-npm install gps-distance
+npm install gps-distance-es
 ```
 
 Examples
 ========
 
-`gps-distance` supports two syntaxes for convenience. You can measure just between two points and supply in your GPS coordinates as direct arguments to distance in the form `(source_lat, source_lon, destination_lat, destination_lon)`, or you can use an array of points each in `[lat,lon]` format. See the examples below.
+`gps-distance-es` 支持两种调用方式.如果是测量两点距离，可以用 `(source_lat, source_lon, destination_lat, destination_lon)`方式调用, 如果要计算多点组成的路径长度，则可以传入一个 `[lat,lon]` 格式的数组. 详见下方示例.
 
-Point to Point
+点对点
 --------------
 
-```javascript
+```typescript
 
-var distance = require('gps-distance');
+import distance from 'gps-distance-es';
 
-// Measure between two points:
-var result = distance(45.527517, -122.718766, 45.373373, -121.693604);
+// 计算两点距离:
+const result = distance(45.527517, -122.718766, 45.373373, -121.693604);
 
-// result is 81.78450202539503
+// 81.78450202539503
 ```
 
-Array of GPS points
+坐标数组
 -------------------
 
-```javascript
+```typescript
+import distance, { Point } from  'gps-distance-es';
 
-// Measure a list of GPS points along a path:
-var path = [
+// 计算多点路径的长度:
+const path:Point[] = [
   [45.527517, -122.718766],
   [45.373373, -121.693604],
   [45.527517, -122.718766]
 ];
-
 var result2 = distance(path);
-
-// result2 is 163.56900405079006
+// 163.56900405079006
 ```
 
-Measuring Distance From a .GPX File
------------------------------------
-
-To compute the distance travelled in a tracked GPX file, use `gps-distance` with the `gpx-stream` module ( http://npmjs.org/package/gpx-stream/ ).
-
-```javascript
-
-var GPXstream = require('gpx-stream');
-var distance = require('gps-distance');
-
-var points = new GPXstream();
-var source = fs.createReadStream('./marathon.gpx');
-var path = [];
-
-source.pipe(points);
-
-points.on('readable', function() {
-  var point;
-
-  while(point = points.read()) {
-    path.push([point.lat, point.lon]);
-  }
-});
-
-points.on('end', function() {
-  console.log('Distance travelled: ' + distance(path) + ' km');
-});
-```
-
-
-Notes
+注意
 -----
 
-Distances are returned in kilometers and computed using the Haversine formula.
+距离利用[半正矢公式](https://zh.wikipedia.org/wiki/%E5%8D%8A%E6%AD%A3%E7%9F%A2%E5%85%AC%E5%BC%8F)计算，返回单位为公里，所以计算结果仅为大致距离，不能代表精确距离
